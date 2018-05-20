@@ -2,11 +2,12 @@ import discord
 
 
 class EmbedGenerator(object):
-	async def __init__:
-
-	async def get_help_embed(ctx, arg):
-		help_dict = {"xp": discord.Embed}
-
+	def __init__(self,bot):
+		self.bot = bot
+		self.help_dict = {"MAIN":HELP_EMBED,"PLACEHOLDER":X_EMBED}
+		
+		
+		# MAIN HELP
 		HELP_EMBED = discord.Embed(title="__**Current Commands**__", color=0x547e34, url="https://gwo.io")
 		HELP_EMBED.add_field(name="General Commands",
 				value="**!help** - Sends this message\n"
@@ -33,5 +34,18 @@ class EmbedGenerator(object):
 			)
 		HELP_EMBED.set_footer(text="Mainly developed by Grewoss | Avatar design by Grassmou")
 		HELP_EMBED.set_thumbnail(url=ctx.bot.user.avatar_url)
-		return HELP_EMBED
+		
+		### SECOND HELP
+		X_EMBED = discord.Embed(title="__**Current Commands**__", color=0x547e34, url="https://gwo.io")
+		X_EMBED.add_field(name="Example Commands", value="**!help** - Sends this message\n")
+		X_EMBED.set_footer(text="Mainly developed by Grewoss | Avatar design by Grassmou")
+		X_EMBED.set_thumbnail(url=ctx.bot.user.avatar_url)
+		
+## in the main.py file:
+# helps = EmbedGenerator(bot)
+# @bot.command()
+# async def help(ctx, arg):
+#    await ctx.send(embed=EmbedGenerator.help_dict[arg])
+		
+		
 
